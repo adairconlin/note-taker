@@ -10,7 +10,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
-}
+};
 
 // Show an element
 const show = (elem) => {
@@ -158,7 +158,6 @@ const renderNoteList = async (notes) => {
     noteListItems.push(createLi('No saved Notes', false));
   }
 
-  console.log(jsonNotes);
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
@@ -171,8 +170,28 @@ const renderNoteList = async (notes) => {
   }
 };
 
+const handleNoteSelect = () => {
+  let noteSelect = document.querySelectorAll("li");
+  noteSelect.forEach(note => {
+    note.addEventListener("click", function() {
+      let noteKey = note.innerText;
+      getNotes().then(async notes => {
+        let searchNotes = await notes.json();
+        for(let i = 0; i < searchNotes.length; i++) {
+          if(searchNotes[i].title === noteKey) {
+            activeNote.title = searchNotes[i].title;
+            activeNote.text = searchNotes[i].text;
+            activeNote.id = true;
+            renderActiveNote();
+          }
+        }
+      });
+    });
+  });
+};
+
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+const getAndRenderNotes = () => getNotes().then(renderNoteList).then(handleNoteSelect);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
