@@ -4,12 +4,11 @@ const { validateNote, createNewNote } = require("../../lib/notes");
 
 router.get("/notes", (req, res) => {
     let results = notes;
-
-    res.json(results); 
+    
+    res.json(results);
 });
 
 router.post("/notes", (req, res) => {
-    console.log(req.body);  
     if(!validateNote(req.body)) {
         res.status(400).send("The note is not properly formatted.");
     } else {

@@ -1,20 +1,18 @@
-{
-  "notes": [
-    {
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "title": "TESt TEStsetes",
-      "text": "descriptoin"
-    },
-    {
-      "title": "um hello",
-      "text": "r u srs"
-    },
-    {
-      "title": "testsetset",
-      "text": "test"
-    }
-  ]
-}
+[
+  {
+    "title": "Test Title",
+    "text": "Test text"
+  },
+  {
+    "title": "testestset",
+    "text": "testest"
+  },
+  {
+    "title": "note title lmao",
+    "text": "note description ahahah"
+  },
+  {
+    "title": "note title test aahha",
+    "text": "descitiona sljdakdasdf 1234"
+  }
+]
