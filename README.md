@@ -1,1 +1,7 @@
-# Note Taker Starter Code
+# Note Taker
+
+## Description
+
+## Usage
+
+![website-preview]()
